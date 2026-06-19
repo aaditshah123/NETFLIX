@@ -1,129 +1,117 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>NETFLIX ❤️</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DHRUVIFLIX ❤️</title>
 <style>
-
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#141414;
-color:white;
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#141414;color:#fff;overflow-x:hidden}
+.navbar{position:fixed;top:0;width:100%;height:70px;background:rgba(0,0,0,.85);display:flex;justify-content:space-between;align-items:center;padding:0 40px;z-index:999}
+.logo{color:#e50914;font-size:2rem;font-weight:bold}
+.nav-links a{color:#fff;text-decoration:none;margin:0 12px}
+.hero{height:100vh;background:linear-gradient(to right,rgba(0,0,0,.85),rgba(0,0,0,.2)),url('images/banner.jpg') center/cover;display:flex;align-items:center;padding:80px}
+.hero-content{max-width:650px}
+.hero h1{font-size:4rem;margin-bottom:20px}
+.hero p{font-size:1.2rem;margin-bottom:20px}
+.btn{padding:12px 25px;border:none;border-radius:5px;cursor:pointer;font-size:1rem;margin-right:10px;transition:.3s}
+.btn:hover{transform:scale(1.08)}
+.play{background:#fff;color:#000}
+.info{background:#555;color:#fff}
+.row{padding:30px 40px}
+.row h2{margin-bottom:15px}
+.cards{display:flex;gap:15px;overflow-x:auto;padding-bottom:10px}
+.card{min-width:260px;height:150px;border-radius:10px;overflow:hidden;transition:.4s;cursor:pointer}
+.card:hover{transform:scale(1.12)}
+.card img{width:100%;height:100%;object-fit:cover}
+.footer{text-align:center;padding:40px;color:#aaa}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.95);justify-content:center;align-items:center;z-index:9999}
+.modal video{width:80%;max-height:85vh}
+.close{position:absolute;top:20px;right:35px;font-size:40px;cursor:pointer}
+.love-letter{padding:40px;background:#1f1f1f;border-radius:10px;margin:40px}
+@media(max-width:768px){
+.hero h1{font-size:2.5rem}
+.nav-links{display:none}
+.hero{padding:30px}
 }
-
-.navbar{
-padding:20px 50px;
-background:black;
-}
-
-.logo{
-color:#E50914;
-font-size:40px;
-font-weight:bold;
-}
-
-.hero{
-height:90vh;
-background:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1600') center/cover;
-display:flex;
-align-items:center;
-padding-left:80px;
-}
-
-.content{
-max-width:600px;
-background:rgba(0,0,0,0.5);
-padding:30px;
-border-radius:10px;
-}
-
-button{
-padding:12px 25px;
-font-size:18px;
-border:none;
-border-radius:5px;
-cursor:pointer;
-margin-right:10px;
-}
-
-.play{
-background:white;
-}
-
-.info{
-background:gray;
-color:white;
-}
-
-.row{
-padding:30px 50px;
-}
-
-.cards{
-display:flex;
-gap:15px;
-overflow-x:auto;
-}
-
-.card{
-min-width:250px;
-height:150px;
-background:#333;
-border-radius:10px;
-transition:.3s;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:20px;
-}
-
-.card:hover{
-transform:scale(1.08);
-}
-
 </style>
 </head>
-
 <body>
 
 <div class="navbar">
-<div class="logo">HERFLIX ❤️</div>
+<div class="logo">DHRUVIFLIX ❤️</div>
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">Memories</a>
+<a href="#">Videos</a>
+<a href="#">Ireland 🇮🇪</a>
+</div>
 </div>
 
-<div class="hero">
-<div class="content">
+<section class="hero">
+<div class="hero-content">
 <h1>Our Story</h1>
+<p>A collection of photos, videos, memories, adventures and dreams.</p>
+<button class="btn play" onclick="openVideo('videos/video1.mp4')">▶ Play</button>
+<button class="btn info" onclick="document.getElementById('love').scrollIntoView({behavior:'smooth'})">More Info</button>
+</div>
+</section>
 
-<p>
-A collection of our memories,
-videos, photos and adventures.
-</p>
-
-<button class="play">▶ Play</button>
-<button class="info">More Info</button>
-
+<div class="row">
+<h2>❤️ Favourite Memories</h2>
+<div class="cards">
+<div class="card"><img src="images/photo1.jpg"></div>
+<div class="card"><img src="images/photo2.jpg"></div>
+<div class="card"><img src="images/photo3.jpg"></div>
+<div class="card"><img src="images/photo4.jpg"></div>
 </div>
 </div>
 
 <div class="row">
-
-<h2>❤️ Favourite Memories</h2>
-
+<h2>🎬 Videos</h2>
 <div class="cards">
-
-<div class="card">First Date</div>
-<div class="card">Goa Trip</div>
-<div class="card">Birthday</div>
-<div class="card">Ireland Soon 🇮🇪</div>
-
+<div class="card" onclick="openVideo('videos/video1.mp4')"><img src="images/video1thumb.jpg"></div>
+<div class="card" onclick="openVideo('videos/video2.mp4')"><img src="images/video2thumb.jpg"></div>
+<div class="card" onclick="openVideo('videos/video3.mp4')"><img src="images/video3thumb.jpg"></div>
+<div class="card" onclick="openVideo('videos/video4.mp4')"><img src="images/video4thumb.jpg"></div>
+<div class="card" onclick="openVideo('videos/video5.mp4')"><img src="images/video5thumb.jpg"></div>
+</div>
 </div>
 
+<div class="row">
+<h2>🇮🇪 Season 2: Ireland</h2>
+<div class="cards">
+<div class="card"><img src="images/ireland1.jpg"></div>
+<div class="card"><img src="images/ireland2.jpg"></div>
+<div class="card"><img src="images/ireland3.jpg"></div>
 </div>
+</div>
+
+<div class="love-letter" id="love">
+<h2>💌 Secret Episode</h2>
+<p>
+No matter where life takes us, every version of the future I imagine has you in it.
+This website is just a small collection of memories, but the best parts are still unwritten.
+</p>
+</div>
+
+<div class="footer">Made with ❤️</div>
+
+<div class="modal" id="modal">
+<span class="close" onclick="closeVideo()">×</span>
+<video controls autoplay id="player"></video>
+</div>
+
+<script>
+function openVideo(path){
+document.getElementById('modal').style.display='flex';
+document.getElementById('player').src=path;
+}
+function closeVideo(){
+document.getElementById('player').pause();
+document.getElementById('modal').style.display='none';
+}
+</script>
 
 </body>
 </html>
